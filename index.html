@@ -1,0 +1,1316 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tik Tak Top Course - Kursus Komputer Terbaik</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <style>
+        /* Custom CSS Styles */
+        :root {
+            --primary: #0d6efd;
+            --secondary: #6c757d;
+            --success: #198754;
+            --warning: #ffc107;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            padding-top: 76px;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            min-height: 100vh;
+        }
+        
+        /* Navbar Styles */
+        .navbar {
+            background: linear-gradient(135deg, var(--primary) 0%, #0b5ed7 100%) !important;
+            box-shadow: 0 4px 12px rgba(13, 110, 253, 0.15);
+            padding: 15px 0;
+        }
+        
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.5rem;
+        }
+        
+        .navbar-brand img {
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+            transition: transform 0.3s ease;
+        }
+        
+        .navbar-brand:hover img {
+            transform: scale(1.1);
+        }
+        
+        .nav-link {
+            font-weight: 500;
+            padding: 8px 15px !important;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            margin: 0 5px;
+        }
+        
+        .nav-link:hover, .nav-link.active {
+            background-color: rgba(255, 255, 255, 0.15);
+            transform: translateY(-2px);
+        }
+        
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(135deg, 
+                rgba(13, 110, 253, 0.9) 0%, 
+                rgba(32, 107, 231, 0.9) 50%, 
+                rgba(59, 130, 246, 0.9) 100%),
+                url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%230d6efd"/><path d="M0,50 L100,50 M50,0 L50,100" stroke="white" stroke-width="2" stroke-opacity="0.1"/></svg>');
+            background-size: cover;
+            background-position: center;
+            min-height: 85vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            margin-top: -76px;
+            padding-top: 120px;
+        }
+        
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23ffffff" fill-opacity="0.1" d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,112C672,96,768,96,864,112C960,128,1056,160,1152,160C1248,160,1344,128,1392,112L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>');
+            background-size: cover;
+            background-position: bottom;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+        }
+        
+        .display-4 {
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+            animation: fadeInUp 1s ease-out;
+        }
+        
+        .hero-section .lead {
+            font-size: 1.25rem;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            opacity: 0.95;
+        }
+        
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+        
+        .float-animation {
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        /* Section Common Styles */
+        section {
+            padding: 80px 0;
+            position: relative;
+        }
+        
+        section h2 {
+            position: relative;
+            padding-bottom: 15px;
+            margin-bottom: 3rem;
+        }
+        
+        section h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(to right, var(--primary), #0dcaf0);
+            border-radius: 2px;
+        }
+        
+        /* Cards */
+        .card {
+            border: none;
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            height: 100%;
+        }
+        
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+        
+        .card-header {
+            background: linear-gradient(135deg, var(--primary) 0%, #0b5ed7 100%);
+            border: none;
+            padding: 20px;
+        }
+        
+        .card-body {
+            padding: 30px;
+        }
+        
+        /* Form Styles */
+        .form-control, .form-select {
+            border: 2px solid #dee2e6;
+            border-radius: 10px;
+            padding: 12px 15px;
+            transition: all 0.3s ease;
+        }
+        
+        .form-control:focus, .form-select:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+            transform: translateY(-2px);
+        }
+        
+        /* Badges */
+        .badge {
+            font-size: 0.8em;
+            padding: 8px 12px;
+            border-radius: 20px;
+            font-weight: 600;
+        }
+        
+        /* Stats Section */
+        .stat-item {
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            display: block;
+            line-height: 1;
+        }
+        
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, #212529 0%, #343a40 100%);
+            color: #fff;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(to right, var(--primary), #0dcaf0);
+        }
+        
+        footer h5 {
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        footer h5::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--primary);
+        }
+        
+        footer ul li {
+            margin-bottom: 10px;
+        }
+        
+        footer a {
+            color: #dee2e6;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        footer a:hover {
+            color: white;
+            padding-left: 5px;
+        }
+        
+        .social-icons a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+            margin-right: 10px;
+        }
+        
+        .social-icons a:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+        }
+        
+        /* Wave SVG */
+        .wave {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            overflow: hidden;
+            line-height: 0;
+            transform: rotate(180deg);
+        }
+        
+        .wave svg {
+            position: relative;
+            display: block;
+            width: calc(100% + 1.3px);
+            height: 100px;
+        }
+        
+        .wave .shape-fill {
+            fill: #ffffff;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            body {
+                padding-top: 66px;
+            }
+            
+            .hero-section {
+                min-height: 70vh;
+                padding-top: 100px;
+            }
+            
+            .display-4 {
+                font-size: 2.5rem;
+            }
+            
+            section {
+                padding: 60px 0;
+            }
+            
+            .navbar-brand {
+                font-size: 1.2rem;
+            }
+            
+            .nav-link {
+                margin: 5px 0;
+                text-align: center;
+            }
+        }
+        
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 1000;
+            box-shadow: 0 4px 15px rgba(13, 110, 253, 0.3);
+        }
+        
+        .back-to-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .back-to-top:hover {
+            background: #0b5ed7;
+            transform: translateY(-3px);
+        }
+        
+        /* Form Submission Animation */
+        .spinner-border {
+            width: 1rem;
+            height: 1rem;
+        }
+        
+        /* Custom Alert */
+        .alert-custom {
+            border-left: 5px solid var(--primary);
+            border-radius: 10px;
+            animation: slideInRight 0.5s ease-out;
+        }
+        
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Back to Top Button -->
+    <div class="back-to-top" id="backToTop">
+        <i class="bi bi-chevron-up"></i>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <!-- Logo with SVG (no external image) -->
+            <a class="navbar-brand d-flex align-items-center" href="#home">
+                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" fill="none" class="me-2">
+                    <rect width="40" height="40" rx="8" fill="#0d6efd"/>
+                    <rect x="8" y="8" width="24" height="24" rx="6" fill="white" opacity="0.1"/>
+                    <path d="M15 15L25 15M15 20L25 20M15 25L25 25" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                    <path d="M20 10V30" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+                <span>Tik Tak Top Course</span>
+            </a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">Tentang Kami</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                            Layanan
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#pendaftaran">Pendaftaran Anggota</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#layanan">Informasi Layanan</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#kelas">Kelas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#kontak">Kontak</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="display-4 text-white fw-bold mb-4">
+                    Selamat Datang di Tik Tak Top Course
+                </h1>
+                <p class="lead text-white mb-5">
+                    Transformasi Karir Anda dengan Keterampilan Digital Terdepan. 
+                    Bergabunglah dengan ribuan alumni sukses kami!
+                </p>
+                <div class="d-flex flex-column flex-md-row justify-content-center gap-3">
+                    <a href="#pendaftaran" class="btn btn-light btn-lg px-4 py-3 fw-bold">
+                        <i class="bi bi-pencil-square me-2"></i>Daftar Sekarang
+                    </a>
+                    <a href="#kelas" class="btn btn-outline-light btn-lg px-4 py-3">
+                        <i class="bi bi-play-circle me-2"></i>Lihat Kelas
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Wave SVG -->
+        <div class="wave">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
+            </svg>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-5 bg-white">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-5 mb-lg-0">
+                    <h2 class="fw-bold text-primary mb-4">Tentang Tik Tak Top</h2>
+                    <p class="lead mb-4">
+                        <strong>Tik Tak Top Course</strong> adalah lembaga kursus komputer terpercaya yang telah membimbing 
+                        lebih dari 2,500 siswa menuju kesuksesan karir di bidang teknologi.
+                    </p>
+                    <p class="mb-4">
+                        Dengan pendekatan belajar yang praktis dan berbasis proyek, kami memastikan setiap siswa 
+                        tidak hanya memahami teori tetapi juga mampu mengaplikasikannya dalam situasi nyata.
+                    </p>
+                    
+                    <div class="row mt-5">
+                        <div class="col-md-6 mb-4">
+                            <div class="stat-item float-animation">
+                                <span class="stat-number">2,500+</span>
+                                <h6>Siswa Lulus</h6>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            <div class="stat-item float-animation" style="animation-delay: 0.2s">
+                                <span class="stat-number">98%</span>
+                                <h6>Tingkat Kepuasan</h6>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            <div class="stat-item float-animation" style="animation-delay: 0.4s">
+                                <span class="stat-number">15+</span>
+                                <h6>Program Kursus</h6>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            <div class="stat-item float-animation" style="animation-delay: 0.6s">
+                                <span class="stat-number">50+</span>
+                                <h6>Instruktur Ahli</h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6">
+                    <div class="card border-0 shadow-lg">
+                        <div class="card-body p-4">
+                            <h4 class="card-title text-primary mb-4">
+                                <i class="bi bi-award me-2"></i>Mengapa Memilih Kami?
+                            </h4>
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <div class="d-flex">
+                                        <div class="me-3">
+                                            <i class="bi bi-check-circle-fill text-success fs-5"></i>
+                                        </div>
+                                        <div>
+                                            <h6>Instruktur Berpengalaman</h6>
+                                            <small>Praxisn profesional dengan sertifikasi internasional</small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <div class="d-flex">
+                                        <div class="me-3">
+                                            <i class="bi bi-check-circle-fill text-success fs-5"></i>
+                                        </div>
+                                        <div>
+                                            <h6>Kurikulum Updated</h6>
+                                            <small>Materi selalu diperbarui sesuai kebutuhan industri</small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <div class="d-flex">
+                                        <div class="me-3">
+                                            <i class="bi bi-check-circle-fill text-success fs-5"></i>
+                                        </div>
+                                        <div>
+                                            <h6>Fasilitas Lengkap</h6>
+                                            <small>Lab komputer modern dengan spesifikasi tinggi</small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <div class="d-flex">
+                                        <div class="me-3">
+                                            <i class="bi bi-check-circle-fill text-success fs-5"></i>
+                                        </div>
+                                        <div>
+                                            <h6>Sertifikat Resmi</h6>
+                                            <small>Diakui oleh perusahaan dan industri</small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <div class="d-flex">
+                                        <div class="me-3">
+                                            <i class="bi bi-check-circle-fill text-success fs-5"></i>
+                                        </div>
+                                        <div>
+                                            <h6>Bimbingan Karir</h6>
+                                            <small>Konsultasi karir dan job placement assistance</small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <div class="d-flex">
+                                        <div class="me-3">
+                                            <i class="bi bi-check-circle-fill text-success fs-5"></i>
+                                        </div>
+                                        <div>
+                                            <h6>Fleksibilitas Waktu</h6>
+                                            <small>Kelas pagi, siang, sore, dan weekend available</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Layanan Section -->
+    <section id="layanan" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center fw-bold text-primary mb-5">Informasi Layanan</h2>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-3">
+                    <div class="card text-center h-100 border-0 shadow-sm">
+                        <div class="card-body p-4">
+                            <div class="mb-3">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="#0d6efd" class="bi bi-laptop" viewBox="0 0 16 16">
+                                    <path d="M13.5 3a.5.5 0 0 1 .5.5V11H2V3.5a.5.5 0 0 1 .5-.5h11zm-11-1A1.5 1.5 0 0 0 1 3.5V12h14V3.5A1.5 1.5 0 0 0 13.5 2h-11zM0 12.5h16a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 0 12.5z"/>
+                                </svg>
+                            </div>
+                            <h4 class="card-title h5">Kursus Online</h4>
+                            <p class="card-text small">Belajar dari mana saja dengan platform e-learning interaktif</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="card text-center h-100 border-0 shadow-sm">
+                        <div class="card-body p-4">
+                            <div class="mb-3">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="#0d6efd" class="bi bi-building" viewBox="0 0 16 16">
+                                    <path d="M4 2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1Zm3 0a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1Zm3.5-.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1ZM4 5.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1ZM7.5 5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1Zm2.5.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1ZM4.5 8a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1Zm2.5.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1Zm3.5-.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1Z"/>
+                                    <path d="M2 1a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V1Zm11 0H3v14h3v-2.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 .5.5V15h3V1Z"/>
+                                </svg>
+                            </div>
+                            <h4 class="card-title h5">Kursus Offline</h4>
+                            <p class="card-text small">Belajar langsung di lab kami dengan fasilitas lengkap</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="card text-center h-100 border-0 shadow-sm">
+                        <div class="card-body p-4">
+                            <div class="mb-3">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="#0d6efd" class="bi bi-person-badge" viewBox="0 0 16 16">
+                                    <path d="M6.5 2a.5.5 0 0 0 0 1h3a.5.5 0 0 0 0-1h-3zM11 8a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+                                    <path d="M4.5 0A2.5 2.5 0 0 0 2 2.5V14a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2.5A2.5 2.5 0 0 0 11.5 0h-7zM3 2.5A1.5 1.5 0 0 1 4.5 1h7A1.5 1.5 0 0 1 13 2.5v10.795a4.2 4.2 0 0 0-.776-.492C11.392 12.387 10.063 12 8 12s-3.392.387-4.224.803a4.2 4.2 0 0 0-.776.492V2.5z"/>
+                                </svg>
+                            </div>
+                            <h4 class="card-title h5">Sertifikasi</h4>
+                            <p class="card-text small">Sertifikat kompetensi yang diakui industri</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="card text-center h-100 border-0 shadow-sm">
+                        <div class="card-body p-4">
+                            <div class="mb-3">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="#0d6efd" class="bi bi-briefcase" viewBox="0 0 16 16">
+                                    <path d="M6.5 1A1.5 1.5 0 0 0 5 2.5V3H1.5A1.5 1.5 0 0 0 0 4.5v8A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-8A1.5 1.5 0 0 0 14.5 3H11v-.5A1.5 1.5 0 0 0 9.5 1h-3zm0 1h3a.5.5 0 0 1 .5.5V3H6v-.5a.5.5 0 0 1 .5-.5zm1.886 6.914L15 7.151V12.5a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5V7.15l6.614 1.764a1.5 1.5 0 0 0 .772 0zM1.5 4h13a.5.5 0 0 1 .5.5v1.616L8.129 7.948a.5.5 0 0 1-.258 0L1 6.116V4.5a.5.5 0 0 1 .5-.5z"/>
+                                </svg>
+                            </div>
+                            <h4 class="card-title h5">Job Placement</h4>
+                            <p class="card-text small">Bantuan penempatan kerja setelah lulus</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Form Pendaftaran Section -->
+    <section id="pendaftaran" class="py-5 bg-white">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="card border-0 shadow-lg">
+                        <div class="card-header bg-primary text-white py-4">
+                            <h3 class="card-title mb-0 text-center">
+                                <i class="bi bi-person-plus-fill me-2"></i>Formulir Pendaftaran Kursus
+                            </h3>
+                        </div>
+                        <div class="card-body p-4 p-md-5">
+                            <!-- Alert -->
+                            <div class="alert alert-info alert-custom alert-dismissible fade show" role="alert">
+                                <i class="bi bi-info-circle-fill me-2"></i>
+                                <strong>Informasi Penting!</strong> Data yang Anda isi akan tersimpan secara otomatis. 
+                                Pastikan data yang diisi benar dan valid.
+                                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                            </div>
+                            
+                            <form id="formPendaftaran" name="pendaftaranForm">
+                                <!-- Nama Lengkap -->
+                                <div class="mb-4">
+                                    <label for="nama" class="form-label fw-bold">
+                                        <i class="bi bi-person-fill me-1"></i>Nama Lengkap <span class="text-danger">*</span>
+                                    </label>
+                                    <input type="text" class="form-control form-control-lg" id="nama" 
+                                           name="nama" placeholder="Masukkan nama lengkap sesuai KTP" required>
+                                </div>
+                                
+                                <!-- Program Kursus -->
+                                <div class="mb-4">
+                                    <label for="program" class="form-label fw-bold">
+                                        <i class="bi bi-book-fill me-1"></i>Program Kursus <span class="text-danger">*</span>
+                                    </label>
+                                    <select class="form-select form-select-lg" id="program" name="program" required>
+                                        <option value="" selected disabled>-- Pilih program kursus --</option>
+                                        <option value="Desain Grafis">🎨 Desain Grafis (Adobe Photoshop & Illustrator)</option>
+                                        <option value="Web Programming">🌐 Web Programming (HTML, CSS, JavaScript, PHP)</option>
+                                        <option value="Data Analysis">📊 Data Analysis (Excel, SQL, Python)</option>
+                                        <option value="Office Professional">💼 Microsoft Office Professional</option>
+                                        <option value="Digital Marketing">📱 Digital Marketing & Social Media</option>
+                                        <option value="Mobile Apps">📱 Mobile Apps Development (Flutter/React Native)</option>
+                                        <option value="Cyber Security">🔒 Cyber Security Fundamentals</option>
+                                    </select>
+                                </div>
+                                
+                                <!-- NIK -->
+                                <div class="mb-4">
+                                    <label for="nik" class="form-label fw-bold">
+                                        <i class="bi bi-card-checklist me-1"></i>NIK (Nomor Induk Kependudukan) <span class="text-danger">*</span>
+                                    </label>
+                                    <input type="text" class="form-control form-control-lg" id="nik" 
+                                           name="nik" placeholder="Masukkan 16 digit NIK" 
+                                           pattern="[0-9]{16}" title="NIK harus 16 digit angka" 
+                                           inputmode="numeric" required>
+                                    <div class="form-text">
+                                        <i class="bi bi-info-circle"></i> Masukkan NIK sesuai KTP (16 digit angka)
+                                    </div>
+                                </div>
+                                
+                                <!-- Alamat -->
+                                <div class="mb-4">
+                                    <label for="alamat" class="form-label fw-bold">
+                                        <i class="bi bi-house-door-fill me-1"></i>Alamat Lengkap <span class="text-danger">*</span>
+                                    </label>
+                                    <textarea class="form-control form-control-lg" id="alamat" 
+                                              name="alamat" rows="3" 
+                                              placeholder="Masukkan alamat lengkap (jalan, RT/RW, kelurahan, kecamatan, kota, kode pos)" 
+                                              required></textarea>
+                                </div>
+                                
+                                <!-- WhatsApp -->
+                                <div class="mb-4">
+                                    <label for="whatsapp" class="form-label fw-bold">
+                                        <i class="bi bi-whatsapp me-1"></i>Nomor WhatsApp <span class="text-danger">*</span>
+                                    </label>
+                                    <div class="input-group input-group-lg">
+                                        <span class="input-group-text bg-light">+62</span>
+                                        <input type="tel" class="form-control" id="whatsapp" 
+                                               name="whatsapp" placeholder="81234567890" 
+                                               pattern="[0-9]{10,13}" title="Nomor WhatsApp 10-13 digit" 
+                                               inputmode="numeric" required>
+                                    </div>
+                                    <div class="form-text">
+                                        <i class="bi bi-whatsapp text-success"></i> Kami akan menghubungi Anda via WhatsApp untuk konfirmasi
+                                    </div>
+                                </div>
+                                
+                                <!-- Submit Button -->
+                                <div class="d-grid gap-2 mt-5">
+                                    <button type="submit" class="btn btn-primary btn-lg py-3 fw-bold" id="submitBtn">
+                                        <span id="submitText">
+                                            <i class="bi bi-send-check me-2"></i>Kirim Pendaftaran
+                                        </span>
+                                        <span id="submitSpinner" class="d-none">
+                                            <span class="spinner-border spinner-border-sm me-2"></span>
+                                            Mengirim...
+                                        </span>
+                                    </button>
+                                    <button type="reset" class="btn btn-outline-secondary btn-lg">
+                                        <i class="bi bi-arrow-clockwise me-2"></i>Reset Form
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Kelas Section -->
+    <section id="kelas" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center fw-bold text-primary mb-5">Daftar Kelas & Program</h2>
+            
+            <!-- Featured Classes -->
+            <div class="row g-4 mb-5">
+                <!-- Kelas 1 -->
+                <div class="col-md-4">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body p-4">
+                            <div class="d-flex justify-content-between align-items-start mb-3">
+                                <span class="badge bg-success">🔥 Populer</span>
+                                <span class="badge bg-info">💻 Online</span>
+                            </div>
+                            <h4 class="card-title mb-3">Kelas Dasar Web</h4>
+                            <p class="card-text mb-4">
+                                Belajar membangun website responsif dengan HTML5, CSS3, dan JavaScript dasar. 
+                                Cocok untuk pemula yang ingin memulai karir di bidang web development.
+                            </p>
+                            <ul class="list-unstyled mb-4">
+                                <li class="mb-2">
+                                    <i class="bi bi-clock text-primary me-2"></i>
+                                    48 Jam Pelajaran (12 Pertemuan)
+                                </li>
+                                <li class="mb-2">
+                                    <i class="bi bi-person text-primary me-2"></i>
+                                    Level: Pemula
+                                </li>
+                                <li class="mb-2">
+                                    <i class="bi bi-cash text-primary me-2"></i>
+                                    Rp 1.500.000
+                                </li>
+                                <li class="mb-2">
+                                    <i class="bi bi-calendar-check text-primary me-2"></i>
+                                    Mulai: Setiap Bulan
+                                </li>
+                            </ul>
+                            <div class="d-grid">
+                                <a href="#pendaftaran" class="btn btn-primary">
+                                    <i class="bi bi-pencil-square me-2"></i>Daftar Kelas Ini
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Kelas 2 -->
+                <div class="col-md-4">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body p-4">
+                            <div class="d-flex justify-content-between align-items-start mb-3">
+                                <span class="badge bg-warning">✨ Terbaru</span>
+                                <span class="badge bg-success">🏫 Offline</span>
+                            </div>
+                            <h4 class="card-title mb-3">Kelas Python Pemula</h4>
+                            <p class="card-text mb-4">
+                                Pengenalan pemrograman Python untuk analisis data, automasi, dan pengembangan aplikasi sederhana. 
+                                Dilengkapi dengan studi kasus nyata.
+                            </p>
+                            <ul class="list-unstyled mb-4">
+                                <li class="mb-2">
+                                    <i class="bi bi-clock text-primary me-2"></i>
+                                    60 Jam Pelajaran (15 Pertemuan)
+                                </li>
+                                <li class="mb-2">
+                                    <i class="bi bi-person text-primary me-2"></i>
+                                    Level: Pemula
+                                </li>
+                                <li class="mb-2">
+                                    <i class="bi bi-cash text-primary me-2"></i>
+                                    Rp 2.000.000
+                                </li>
+                                <li class="mb-2">
+                                    <i class="bi bi-calendar-check text-primary me-2"></i>
+                                    Batch 15: 20 Januari 2024
+                                </li>
+                            </ul>
+                            <div class="d-grid">
+                                <a href="#pendaftaran" class="btn btn-primary">
+                                    <i class="bi bi-pencil-square me-2"></i>Daftar Kelas Ini
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Kelas 3 -->
+                <div class="col-md-4">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body p-4">
+                            <div class="d-flex justify-content-between align-items-start mb-3">
+                                <span class="badge bg-danger">⭐ Best Seller</span>
+                                <span class="badge bg-info">💻 Online</span>
+                            </div>
+                            <h4 class="card-title mb-3">Kelas Excel untuk Data</h4>
+                            <p class="card-text mb-4">
+                                Mahir menggunakan Excel untuk analisis data, dashboard, dan laporan profesional. 
+                                Belajar formula, pivot table, dan visualisasi data.
+                            </p>
+                            <ul class="list-unstyled mb-4">
+                                <li class="mb-2">
+                                    <i class="bi bi-clock text-primary me-2"></i>
+                                    40 Jam Pelajaran (10 Pertemuan)
+                                </li>
+                                <li class="mb-2">
+                                    <i class="bi bi-person text-primary me-2"></i>
+                                    Level: Semua Level
+                                </li>
+                                <li class="mb-2">
+                                    <i class="bi bi-cash text-primary me-2"></i>
+                                    Rp 1.200.000
+                                </li>
+                                <li class="mb-2">
+                                    <i class="bi bi-calendar-check text-primary me-2"></i>
+                                    Mulai: Setiap Senin
+                                </li>
+                            </ul>
+                            <div class="d-grid">
+                                <a href="#pendaftaran" class="btn btn-primary">
+                                    <i class="bi bi-pencil-square me-2"></i>Daftar Kelas Ini
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Other Classes Grid -->
+            <h4 class="text-center mb-4">Program Lainnya</h4>
+            <div class="row g-3">
+                <div class="col-6 col-md-3">
+                    <div class="card border-0 shadow-sm h-100 text-center">
+                        <div class="card-body p-3">
+                            <div class="mb-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#0d6efd" class="bi bi-palette-fill" viewBox="0 0 16 16">
+                                    <path d="M12.433 10.07C14.133 10.585 16 11.15 16 8a8 8 0 1 0-8 8c1.996 0 1.826-1.504 1.649-3.08-.124-1.101-.252-2.237.351-2.92.465-.527 1.42-.237 2.433.07zM8 5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm4.5 3a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zM5 6.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm.5 6.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"/>
+                                </svg>
+                            </div>
+                            <h6 class="mb-0">Desain Grafis</h6>
+                            <small>Photoshop, Illustrator</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="card border-0 shadow-sm h-100 text-center">
+                        <div class="card-body p-3">
+                            <div class="mb-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#0d6efd" class="bi bi-phone-fill" viewBox="0 0 16 16">
+                                    <path d="M3 2a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V2zm6 11a1 1 0 1 0-2 0 1 1 0 0 0 2 0z"/>
+                                </svg>
+                            </div>
+                            <h6 class="mb-0">Mobile Apps</h6>
+                            <small>Flutter, React Native</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="card border-0 shadow-sm h-100 text-center">
+                        <div class="card-body p-3">
+                            <div class="mb-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#0d6efd" class="bi bi-shield-fill-check" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M8 0c-.69 0-1.843.265-2.928.56-1.11.3-2.229.655-2.887.87a1.54 1.54 0 0 0-1.044 1.262c-.596 4.477.787 7.795 2.465 9.99a11.777 11.777 0 0 0 2.517 2.453c.386.273.744.482 1.048.625.28.132.581.24.829.24s.548-.108.829-.24a7.159 7.159 0 0 0 1.048-.625 11.775 11.775 0 0 0 2.517-2.453c1.678-2.195 3.061-5.513 2.465-9.99a1.541 1.541 0 0 0-1.044-1.263 62.467 62.467 0 0 0-2.887-.87C9.843.266 8.69 0 8 0zm2.146 5.146a.5.5 0 0 1 .708.708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 7.793l2.646-2.647z"/>
+                                </svg>
+                            </div>
+                            <h6 class="mb-0">Cyber Security</h6>
+                            <small>Fundamental Security</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="card border-0 shadow-sm h-100 text-center">
+                        <div class="card-body p-3">
+                            <div class="mb-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#0d6efd" class="bi bi-bar-chart-fill" viewBox="0 0 16 16">
+                                    <path d="M1 11a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1v-3zm5-4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v7a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V7zm5-5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1V2z"/>
+                                </svg>
+                            </div>
+                            <h6 class="mb-0">Data Science</h6>
+                            <small>Python, SQL, ML</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="kontak" class="pt-5">
+        <div class="container">
+            <div class="row">
+                <!-- Info Kontak -->
+                <div class="col-lg-4 mb-4">
+                    <h5 class="fw-bold mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-building me-2" viewBox="0 0 16 16">
+                            <path d="M4 2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1Zm3 0a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1Zm3.5-.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1ZM4 5.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1ZM7.5 5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1Zm2.5.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1ZM4.5 8a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1Zm2.5.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1Zm3.5-.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1Z"/>
+                            <path d="M2 1a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V1Zm11 0H3v14h3v-2.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 .5.5V15h3V1Z"/>
+                        </svg>
+                        Tik Tak Top Course
+                    </h5>
+                    <p class="mb-3">
+                        <i class="bi bi-geo-alt-fill me-2"></i>
+                        <strong>Alamat:</strong><br>
+                        Jl. Teknologi No. 123, Menteng<br>
+                        Jakarta Pusat 10110
+                    </p>
+                    <p class="mb-3">
+                        <i class="bi bi-telephone-fill me-2"></i>
+                        <strong>Telepon:</strong> (021) 1234-5678
+                    </p>
+                    <p class="mb-3">
+                        <i class="bi bi-envelope-fill me-2"></i>
+                        <strong>Email:</strong> info@tiktaktopcourse.com
+                    </p>
+                    <p class="mb-0">
+                        <i class="bi bi-clock-fill me-2"></i>
+                        <strong>Jam Operasional:</strong><br>
+                        Senin - Jumat: 08:00 - 20:00 WIB<br>
+                        Sabtu: 08:00 - 15:00 WIB
+                    </p>
+                </div>
+                
+                <!-- Quick Links -->
+                <div class="col-lg-4 mb-4">
+                    <h5 class="fw-bold mb-4">Menu Cepat</h5>
+                    <div class="row">
+                        <div class="col-6">
+                            <ul class="list-unstyled">
+                                <li class="mb-3"><a href="#home">Home</a></li>
+                                <li class="mb-3"><a href="#about">Tentang Kami</a></li>
+                                <li class="mb-3"><a href="#layanan">Layanan</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-6">
+                            <ul class="list-unstyled">
+                                <li class="mb-3"><a href="#pendaftaran">Pendaftaran</a></li>
+                                <li class="mb-3"><a href="#kelas">Daftar Kelas</a></li>
+                                <li class="mb-3"><a href="#kontak">Kontak</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Sosial Media & Newsletter -->
+                <div class="col-lg-4 mb-4">
+                    <h5 class="fw-bold mb-4">Ikuti Kami</h5>
+                    <div class="social-icons mb-4">
+                        <a href="#" class="me-2" title="Facebook">
+                            <i class="bi bi-facebook"></i>
+                        </a>
+                        <a href="#" class="me-2" title="Instagram">
+                            <i class="bi bi-instagram"></i>
+                        </a>
+                        <a href="#" class="me-2" title="Twitter">
+                            <i class="bi bi-twitter"></i>
+                        </a>
+                        <a href="#" class="me-2" title="YouTube">
+                            <i class="bi bi-youtube"></i>
+                        </a>
+                        <a href="#" title="WhatsApp">
+                            <i class="bi bi-whatsapp"></i>
+                        </a>
+                    </div>
+                    
+                    <h6 class="fw-bold mb-3">Newsletter</h6>
+                    <p class="small mb-3">
+                        Dapatkan info promo dan materi belajar gratis langsung ke email Anda.
+                    </p>
+                    <div class="input-group mb-3">
+                        <input type="email" class="form-control" placeholder="Email Anda">
+                        <button class="btn btn-primary" type="button">
+                            <i class="bi bi-send"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Copyright -->
+            <div class="border-top pt-4 mt-4 text-center">
+                <p class="mb-2">
+                    &copy; 2024 <strong>Tik Tak Top Course</strong>. All rights reserved.
+                </p>
+                <p class="small mb-0">
+                    <a href="#" class="text-decoration-none me-3">Kebijakan Privasi</a> | 
+                    <a href="#" class="text-decoration-none me-3">Syarat & Ketentuan</a> | 
+                    <a href="#" class="text-decoration-none">FAQ</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Form Submission Script -->
+    <script>
+    // Back to Top Button
+    const backToTop = document.getElementById('backToTop');
+    
+    window.addEventListener('scroll', () => {
+        if (window.pageYOffset > 300) {
+            backToTop.classList.add('show');
+        } else {
+            backToTop.classList.remove('show');
+        }
+    });
+    
+    backToTop.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+    
+    // ========================
+    // GOOGLE APPS SCRIPT URL
+    // GANTI DENGAN URL ANDA!
+    // ========================
+    const SCRIPT_URL = 'https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec';
+    
+    // Form Submission
+    const form = document.forms['pendaftaranForm'];
+    const submitBtn = document.getElementById('submitBtn');
+    const submitText = document.getElementById('submitText');
+    const submitSpinner = document.getElementById('submitSpinner');
+    
+    form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        
+        // Validasi NIK
+        const nikInput = document.getElementById('nik');
+        if (!/^\d{16}$/.test(nikInput.value)) {
+            showAlert('error', 'NIK harus terdiri dari 16 digit angka');
+            nikInput.focus();
+            return;
+        }
+        
+        // Validasi WhatsApp
+        const whatsappInput = document.getElementById('whatsapp');
+        if (!/^\d{10,13}$/.test(whatsappInput.value)) {
+            showAlert('error', 'Nomor WhatsApp harus 10-13 digit angka');
+            whatsappInput.focus();
+            return;
+        }
+        
+        // Show loading state
+        submitText.classList.add('d-none');
+        submitSpinner.classList.remove('d-none');
+        submitBtn.disabled = true;
+        
+        // Format WhatsApp number
+        let whatsappValue = whatsappInput.value;
+        if (!whatsappValue.startsWith('62')) {
+            whatsappValue = '62' + whatsappValue;
+        }
+        
+        // Prepare form data
+        const formData = {
+            nama: form.nama.value,
+            program: form.program.value,
+            nik: form.nik.value,
+            alamat: form.alamat.value,
+            whatsapp: whatsappValue
+        };
+        
+        try {
+            // Send to Google Sheets via Google Apps Script
+            const response = await fetch(SCRIPT_URL, {
+                method: 'POST',
+                mode: 'no-cors',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: new URLSearchParams(formData)
+            });
+            
+            // Note: Since we're using no-cors mode, we can't read the response directly
+            // But we know it succeeded if no error was thrown
+            
+            // Show success message
+            showAlert('success', 
+                `✅ Pendaftaran berhasil dikirim!<br><br>
+                <strong>Nama:</strong> ${formData.nama}<br>
+                <strong>Program:</strong> ${formData.program}<br>
+                <strong>WhatsApp:</strong> +${formData.whatsapp}<br><br>
+                Kami akan menghubungi Anda dalam 1x24 jam.`
+            );
+            
+            // Save to localStorage for backup
+            saveToLocalStorage(formData);
+            
+            // Reset form
+            form.reset();
+            
+        } catch (error) {
+            console.error('Error:', error);
+            showAlert('error', 
+                `❌ Gagal mengirim data ke server.<br>
+                <strong>Error:</strong> ${error.message}<br><br>
+                Data telah disimpan lokal. Silakan coba lagi nanti.`
+            );
+            
+            // Save to localStorage as backup
+            saveToLocalStorage(formData);
+            
+        } finally {
+            // Restore button state
+            submitText.classList.remove('d-none');
+            submitSpinner.classList.add('d-none');
+            submitBtn.disabled = false;
+        }
+    });
+    
+    // Function to save data to localStorage
+    function saveToLocalStorage(data) {
+        try {
+            const submission = {
+                ...data,
+                timestamp: new Date().toISOString(),
+                synced: false
+            };
+            
+            let submissions = JSON.parse(localStorage.getItem('tiktaktop_submissions') || '[]');
+            submissions.push(submission);
+            localStorage.setItem('tiktaktop_submissions', JSON.stringify(submissions));
+            
+            console.log('Data saved to localStorage:', submission);
+            console.log('Total submissions in localStorage:', submissions.length);
+            
+        } catch (error) {
+            console.error('Error saving to localStorage:', error);
+        }
+    }
+    
+    // Function to show alert messages
+    function showAlert(type, message) {
+        // Remove existing alerts
+        const existingAlert = document.querySelector('.custom-alert');
+        if (existingAlert) {
+            existingAlert.remove();
+        }
+        
+        // Create alert element
+        const alertDiv = document.createElement('div');
+        alertDiv.className = `custom-alert alert alert-${type === 'success' ? 'success' : 'danger'} alert-dismissible fade show position-fixed`;
+        alertDiv.style.cssText = `
+            top: 80px;
+            right: 20px;
+            z-index: 9999;
+            max-width: 400px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        `;
+        
+        alertDiv.innerHTML = `
+            <strong>${type === 'success' ? 'Sukses!' : 'Error!'}</strong>
+            <div class="mt-2">${message}</div>
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        `;
+        
+        // Add to page
+        document.body.appendChild(alertDiv);
+        
+        // Auto remove after 10 seconds
+        setTimeout(() => {
+            if (alertDiv.parentNode) {
+                alertDiv.remove();
+            }
+        }, 10000);
+    }
+    
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            const targetId = this.getAttribute('href');
+            if (targetId === '#') return;
+            
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+                window.scrollTo({
+                    top: targetElement.offsetTop - 70,
+                    behavior: 'smooth'
+                });
+                
+                // Update active nav link
+                document.querySelectorAll('.nav-link').forEach(link => {
+                    link.classList.remove('active');
+                });
+                this.classList.add('active');
+            }
+        });
+    });
+    
+    // Auto-close mobile navbar on click
+    const navLinks = document.querySelectorAll('.nav-link');
+    const navbarCollapse = document.querySelector('.navbar-collapse');
+    
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            if (navbarCollapse.classList.contains('show')) {
+                const bsCollapse = new bootstrap.Collapse(navbarCollapse);
+                bsCollapse.hide();
+            }
+        });
+    });
+    
+    // Form validation
+    const inputs = document.querySelectorAll('input, select, textarea');
+    inputs.forEach(input => {
+        input.addEventListener('blur', function() {
+            if (!this.checkValidity()) {
+                this.classList.add('is-invalid');
+            } else {
+                this.classList.remove('is-invalid');
+                this.classList.add('is-valid');
+            }
+        });
+    });
+    
+    // Check for unsynced submissions on page load
+    window.addEventListener('load', () => {
+        const submissions = JSON.parse(localStorage.getItem('tiktaktop_submissions') || '[]');
+        const unsynced = submissions.filter(s => !s.synced);
+        
+        if (unsynced.length > 0) {
+            console.log(`Found ${unsynced.length} unsynced submissions`);
+        }
+    });
+</script>
+</body>
+</html>
