@@ -1175,15 +1175,15 @@
                     const jsonResult = JSON.parse(result);
                     console.log('Parsed JSON:', jsonResult);
                     
-                    if (jsonResult.result === 'success') {
-                        showAlert('success', 
-                            `✅ Pendaftaran berhasil dikirim!<br><br>
-                            <strong>Nama:</strong> ${formData.nama}<br>
-                            <strong>Program:</strong> ${formData.program}<br>
-                            <strong>WhatsApp:</strong> +${formData.whatsapp}<br><br>
-                            Data Anda telah berhasil disimpan di sistem kami. Terima kasih sudah mendaftar!`
-                        );
-                    } else {
+                   if (jsonResult.result === 'success') {
+                    showAlert('success', 
+                        `✅ Pendaftaran berhasil dikirim!<br><br>
+                        <strong>Nama:</strong> ${formData.nama}<br>
+                        <strong>Program:</strong> ${formData.program}<br>
+                        <strong>WhatsApp:</strong> +${formData.whatsapp}<br><br>
+                        Data Anda telah berhasil disimpan di sistem kami. Terima kasih sudah mendaftar!`
+                    );
+                } else {
                         throw new Error(jsonResult.error || 'Error dari server');
                     }
                 } catch {
