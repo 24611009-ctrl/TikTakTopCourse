@@ -455,7 +455,7 @@
             </div>
         </div>
     </nav>
-
+    
     <!-- Hero Section -->
     <section id="home" class="hero-section">
         <div class="container">
@@ -693,7 +693,13 @@
                                 <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
                             </div>
                             
-                            <form id="formPendaftaran" name="pendaftaranForm">
+                            <!-- =========================== -->
+                            <!-- PERUBAHAN DI SINI: Tambahkan action URL -->
+                            <!-- =========================== -->
+                            <form id="formPendaftaran" name="pendaftaranForm" 
+                                  action="https://script.google.com/macros/s/AKfycbysr42tjyYvmmMLbYkuSsSy2lJOQwtfNukg7QoNHnvslYw033H_HytDh4qEfNcaJyEf-A/exec" 
+                                  method="POST">
+                                
                                 <!-- Nama Lengkap -->
                                 <div class="mb-4">
                                     <label for="nama" class="form-label fw-bold">
@@ -1096,11 +1102,10 @@
         window.scrollTo({ top: 0, behavior: 'smooth' });
     });
     
-    // ========================
-    // GOOGLE APPS SCRIPT URL
-    // GANTI DENGAN URL ANDA!
-    // ========================
-    const SCRIPT_URL = 'https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec';
+    // ========================================
+    // PERUBAHAN DI SINI: Ganti dengan URL Anda
+    // ========================================
+    const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbysr42tjyYvmmMLbYkuSsSy2lJOQwtfNukg7QoNHnvslYw033H_HytDh4qEfNcaJyEf-A/exec';
     
     // Form Submission
     const form = document.forms['pendaftaranForm'];
