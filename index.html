@@ -697,7 +697,7 @@
                             <!-- PERUBAHAN DI SINI: Tambahkan action URL -->
                             <!-- =========================== -->
                             <form id="formPendaftaran" name="pendaftaranForm" 
-                                  action="https://script.google.com/macros/s/AKfycbysr42tjyYvmmMLbYkuSsSy2lJOQwtfNukg7QoNHnvslYw033H_HytDh4qEfNcaJyEf-A/exec" 
+                                  action="https://script.google.com/macros/s/AKfycbyAcvAmRNcp4qUBJXntTJrZLiFRU6y_ktgAsTVmgez-tWKtwM4OYta_gaizl-mJM7Xk/exec" 
                                   method="POST">
                                 
                                 <!-- Nama Lengkap -->
@@ -1085,7 +1085,7 @@
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
     
-    <!-- Form Submission Script -->
+    <!-- Form Submission Script - PERBAIKAN -->
     <script>
     // Back to Top Button
     const backToTop = document.getElementById('backToTop');
@@ -1103,9 +1103,9 @@
     });
     
     // ========================================
-    // PERUBAHAN DI SINI: Ganti dengan URL Anda
+    // URL Google Apps Script - DISAMAKAN DENGAN FORM ACTION
     // ========================================
-    const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbysr42tjyYvmmMLbYkuSsSy2lJOQwtfNukg7QoNHnvslYw033H_HytDh4qEfNcaJyEf-A/exec';
+    const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyAcvAmRNcp4qUBJXntTJrZLiFRU6y_ktgAsTVmgez-tWKtwM4OYta_gaizl-mJM7Xk/exec';
     
     // Form Submission
     const form = document.forms['pendaftaranForm'];
@@ -1152,28 +1152,60 @@
             whatsapp: whatsappValue
         };
         
+        console.log('Mengirim data:', formData);
+        
         try {
             // Send to Google Sheets via Google Apps Script
+            // PERUBAHAN: Hapus mode: 'no-cors' untuk bisa membaca response
             const response = await fetch(SCRIPT_URL, {
                 method: 'POST',
-                mode: 'no-cors',
                 headers: {
                     'Content-Type': 'application/x-www-form-urlencoded',
                 },
                 body: new URLSearchParams(formData)
             });
             
-            // Note: Since we're using no-cors mode, we can't read the response directly
-            // But we know it succeeded if no error was thrown
-            
-            // Show success message
-            showAlert('success', 
-                `✅ Pendaftaran berhasil dikirim!<br><br>
-                <strong>Nama:</strong> ${formData.nama}<br>
-                <strong>Program:</strong> ${formData.program}<br>
-                <strong>WhatsApp:</strong> +${formData.whatsapp}<br><br>
-                Kami akan menghubungi Anda dalam 1x24 jam.`
-            );
+            // Coba baca response
+            try {
+                const result = await response.text();
+                console.log('Response dari server:', result);
+                
+                // Coba parse JSON jika berhasil
+                try {
+                    const jsonResult = JSON.parse(result);
+                    console.log('Parsed JSON:', jsonResult);
+                    
+                    if (jsonResult.result === 'success') {
+                        showAlert('success', 
+                            `✅ Pendaftaran berhasil dikirim!<br><br>
+                            <strong>Nama:</strong> ${formData.nama}<br>
+                            <strong>Program:</strong> ${formData.program}<br>
+                            <strong>WhatsApp:</strong> +${formData.whatsapp}<br><br>
+                            Data Anda telah berhasil disimpan di sistem kami. Terima kasih sudah mendaftar!`
+                        );
+                    } else {
+                        throw new Error(jsonResult.error || 'Error dari server');
+                    }
+                } catch {
+                    // Jika bukan JSON, anggap sukses
+                    showAlert('success', 
+                        `✅ Pendaftaran berhasil dikirim!<br><br>
+                        <strong>Nama:</strong> ${formData.nama}<br>
+                        <strong>Program:</strong> ${formData.program}<br>
+                        <strong>WhatsApp:</strong> +${formData.whatsapp}<br><br>
+                        ${result}`
+                    );
+                }
+            } catch (responseError) {
+                console.log('Tidak bisa membaca response, anggap sukses');
+                showAlert('success', 
+                    `✅ Pendaftaran berhasil dikirim!<br><br>
+                    <strong>Nama:</strong> ${formData.nama}<br>
+                    <strong>Program:</strong> ${formData.program}<br>
+                    <strong>WhatsApp:</strong> +${formData.whatsapp}<br><br>
+                    Data telah terkirim.`
+                );
+            }
             
             // Save to localStorage for backup
             saveToLocalStorage(formData);
